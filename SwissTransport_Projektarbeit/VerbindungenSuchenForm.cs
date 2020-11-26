@@ -24,11 +24,13 @@ namespace SwissTransport_Projektarbeit
 
         private void verbindungenSuchenBtn_Click(object sender, EventArgs e)
         {
+            verbindungenListView.Items.Clear();
+            verbindungenListView.Columns.Clear();
             verbindungenListView.View = View.Details;
-            verbindungenListView.Items.AddRange(GetConnections(vonStationTxtBox.Text, zuStationTxtBox.Text));
+            verbindungenListView.Items.AddRange(GetConnectionsInListView(vonStationTxtBox.Text, zuStationTxtBox.Text));
         }
 
-        private ListViewItem[] GetConnections(string vonStation, string zuStation)
+        private ListViewItem[] GetConnectionsInListView(string vonStation, string zuStation)
         {
             Connections verbindung = transport.GetConnections(vonStation, zuStation);
 
@@ -42,6 +44,7 @@ namespace SwissTransport_Projektarbeit
                 listView[i].SubItems.Add(DateTime.Parse(verbindung.ConnectionList[i].From.Departure).ToShortTimeString());
                 listView[i].SubItems.Add(DateTime.Parse(verbindung.ConnectionList[i].To.Arrival).ToShortTimeString());
                 listView[i].SubItems.Add(TimeSpan.Parse(verbindung.ConnectionList[i].Duration.Substring(3)).TotalMinutes.ToString() + " Min");
+                listView[i].SubItems.Add(verbindung.ConnectionList[i].From.Platform);
             }
 
             return listView;
@@ -54,10 +57,11 @@ namespace SwissTransport_Projektarbeit
             verbindungenListView.Columns.Add("Abfahrt");
             verbindungenListView.Columns.Add("Ankunft");
             verbindungenListView.Columns.Add("Dauer");
+            verbindungenListView.Columns.Add("Platform");
 
             for (int i = 0; i < verbindungenListView.Columns.Count; i++)
             {
-                verbindungenListView.Columns[i].Width = -2;
+                verbindungenListView.Columns[i].Width = 75;
             }
         }
     }

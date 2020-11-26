@@ -60,7 +60,7 @@ namespace SwissTransport_Projektarbeit
             this.zuStationLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.zuStationLbl.AutoSize = true;
             this.zuStationLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zuStationLbl.Location = new System.Drawing.Point(278, 7);
+            this.zuStationLbl.Location = new System.Drawing.Point(316, 7);
             this.zuStationLbl.Name = "zuStationLbl";
             this.zuStationLbl.Size = new System.Drawing.Size(32, 20);
             this.zuStationLbl.TabIndex = 2;
@@ -69,7 +69,7 @@ namespace SwissTransport_Projektarbeit
             // zuStationTxtBox
             // 
             this.zuStationTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.zuStationTxtBox.Location = new System.Drawing.Point(316, 9);
+            this.zuStationTxtBox.Location = new System.Drawing.Point(354, 9);
             this.zuStationTxtBox.Name = "zuStationTxtBox";
             this.zuStationTxtBox.Size = new System.Drawing.Size(140, 20);
             this.zuStationTxtBox.TabIndex = 3;
@@ -79,9 +79,9 @@ namespace SwissTransport_Projektarbeit
             // 
             this.verbindungenSuchenBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.verbindungenSuchenBtn.Location = new System.Drawing.Point(178, 48);
+            this.verbindungenSuchenBtn.Location = new System.Drawing.Point(198, 48);
             this.verbindungenSuchenBtn.Name = "verbindungenSuchenBtn";
-            this.verbindungenSuchenBtn.Size = new System.Drawing.Size(123, 29);
+            this.verbindungenSuchenBtn.Size = new System.Drawing.Size(141, 29);
             this.verbindungenSuchenBtn.TabIndex = 4;
             this.verbindungenSuchenBtn.Text = "Suchen";
             this.verbindungenSuchenBtn.UseVisualStyleBackColor = true;
@@ -92,16 +92,17 @@ namespace SwissTransport_Projektarbeit
             this.verbindungenListView.HideSelection = false;
             this.verbindungenListView.Location = new System.Drawing.Point(12, 101);
             this.verbindungenListView.Name = "verbindungenListView";
-            this.verbindungenListView.Size = new System.Drawing.Size(444, 299);
+            this.verbindungenListView.Size = new System.Drawing.Size(482, 299);
             this.verbindungenListView.TabIndex = 5;
             this.verbindungenListView.UseCompatibleStateImageBehavior = false;
             // 
             // verbindungenSuchenForm
             // 
+            this.AcceptButton = this.verbindungenSuchenBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(468, 412);
+            this.ClientSize = new System.Drawing.Size(506, 412);
             this.Controls.Add(this.verbindungenListView);
             this.Controls.Add(this.verbindungenSuchenBtn);
             this.Controls.Add(this.zuStationTxtBox);
