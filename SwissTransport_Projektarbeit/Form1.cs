@@ -7,14 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SwissTransport;
 
 namespace SwissTransport_Projektarbeit
 {
-    public partial class Form1: Form
+    public partial class MainForm: Form
     {
-        public Form1()
+        // Membervariablen 
+        Transport transport = new Transport();
+
+        public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void verbindungenSuchenBtn_Click(object sender, EventArgs e)
+        {
+            Form verbindungenSuchenForm = new verbindungenSuchenForm();
+            verbindungenSuchenForm.Show();
         }
     }
 }
