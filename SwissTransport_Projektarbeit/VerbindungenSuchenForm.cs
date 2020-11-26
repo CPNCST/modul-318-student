@@ -15,7 +15,7 @@ namespace SwissTransport_Projektarbeit
     public partial class verbindungenSuchenForm : Form
     {
         // Membervariablen 
-        Transport transport = new Transport(); 
+        Transport _transport = new Transport(); 
 
         public verbindungenSuchenForm()
         {
@@ -32,7 +32,7 @@ namespace SwissTransport_Projektarbeit
 
         private ListViewItem[] GetConnectionsInListView(string vonStation, string zuStation)
         {
-            Connections verbindung = transport.GetConnections(vonStation, zuStation);
+            Connections verbindung = _transport.GetConnections(vonStation, zuStation);
 
             AddColumns();
             ListViewItem[] listView = new ListViewItem[verbindung.ConnectionList.Count];

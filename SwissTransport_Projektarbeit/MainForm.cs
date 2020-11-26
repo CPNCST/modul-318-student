@@ -18,10 +18,16 @@ namespace SwissTransport_Projektarbeit
             InitializeComponent();
         }
 
-        private void verbindungenSuchenBtn_Click(object sender, EventArgs e)
+        private void MFverbindungenSuchenBtn_Click(object sender, EventArgs e)
         {
             Form verbindungenSuchenForm = new verbindungenSuchenForm();
             verbindungenSuchenForm.Show();
+        }
+
+        private void MFstationenAbfahrtstafelBtn_Click(object sender, EventArgs e)
+        {
+            Form abfahrtstafelForm = new AbfahrtstafelForm();
+            abfahrtstafelForm.Show();
         }
     }
 }

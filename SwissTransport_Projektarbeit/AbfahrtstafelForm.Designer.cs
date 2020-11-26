@@ -51,6 +51,7 @@ namespace SwissTransport_Projektarbeit
             resources.ApplyResources(this.abfahrtStationSuchenBtn, "abfahrtStationSuchenBtn");
             this.abfahrtStationSuchenBtn.Name = "abfahrtStationSuchenBtn";
             this.abfahrtStationSuchenBtn.UseVisualStyleBackColor = true;
+            this.abfahrtStationSuchenBtn.Click += new System.EventHandler(this.abfahrtStationSuchenBtn_Click);
             // 
             // abfahrtStationListView
             // 
