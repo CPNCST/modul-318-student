@@ -35,6 +35,10 @@ namespace SwissTransport_Projektarbeit
             this.verbindungenListView = new System.Windows.Forms.ListView();
             this.vonStationCmbBox = new System.Windows.Forms.ComboBox();
             this.zuStationCmbBox = new System.Windows.Forms.ComboBox();
+            this.datetimeDtp = new System.Windows.Forms.DateTimePicker();
+            this.timeDtp = new System.Windows.Forms.DateTimePicker();
+            this.isArrivalRbtn = new System.Windows.Forms.RadioButton();
+            this.isDepartureRbtn = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // vonStandortLbl
@@ -62,7 +66,7 @@ namespace SwissTransport_Projektarbeit
             // 
             this.verbindungenSuchenBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.verbindungenSuchenBtn.Location = new System.Drawing.Point(198, 48);
+            this.verbindungenSuchenBtn.Location = new System.Drawing.Point(184, 30);
             this.verbindungenSuchenBtn.Name = "verbindungenSuchenBtn";
             this.verbindungenSuchenBtn.Size = new System.Drawing.Size(141, 29);
             this.verbindungenSuchenBtn.TabIndex = 4;
@@ -72,6 +76,8 @@ namespace SwissTransport_Projektarbeit
             // 
             // verbindungenListView
             // 
+            this.verbindungenListView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.verbindungenListView.HideSelection = false;
             this.verbindungenListView.Location = new System.Drawing.Point(12, 101);
             this.verbindungenListView.Name = "verbindungenListView";
@@ -81,8 +87,6 @@ namespace SwissTransport_Projektarbeit
             // 
             // vonStationCmbBox
             // 
-            this.vonStationCmbBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.vonStationCmbBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.vonStationCmbBox.FormattingEnabled = true;
             this.vonStationCmbBox.Location = new System.Drawing.Point(60, 9);
             this.vonStationCmbBox.Name = "vonStationCmbBox";
@@ -92,14 +96,52 @@ namespace SwissTransport_Projektarbeit
             // 
             // zuStationCmbBox
             // 
-            this.zuStationCmbBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.zuStationCmbBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.zuStationCmbBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.zuStationCmbBox.FormattingEnabled = true;
             this.zuStationCmbBox.Location = new System.Drawing.Point(354, 9);
             this.zuStationCmbBox.Name = "zuStationCmbBox";
             this.zuStationCmbBox.Size = new System.Drawing.Size(121, 21);
             this.zuStationCmbBox.TabIndex = 7;
             this.zuStationCmbBox.TextChanged += new System.EventHandler(this.zuStationCmbBox_TextChanged);
+            // 
+            // datetimeDtp
+            // 
+            this.datetimeDtp.Location = new System.Drawing.Point(12, 65);
+            this.datetimeDtp.Name = "datetimeDtp";
+            this.datetimeDtp.Size = new System.Drawing.Size(200, 20);
+            this.datetimeDtp.TabIndex = 8;
+            // 
+            // timeDtp
+            // 
+            this.timeDtp.CustomFormat = "hh:mm - yyyy";
+            this.timeDtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.timeDtp.Location = new System.Drawing.Point(219, 64);
+            this.timeDtp.Name = "timeDtp";
+            this.timeDtp.ShowUpDown = true;
+            this.timeDtp.Size = new System.Drawing.Size(87, 20);
+            this.timeDtp.TabIndex = 9;
+            // 
+            // isArrivalRbtn
+            // 
+            this.isArrivalRbtn.AutoSize = true;
+            this.isArrivalRbtn.Location = new System.Drawing.Point(329, 65);
+            this.isArrivalRbtn.Name = "isArrivalRbtn";
+            this.isArrivalRbtn.Size = new System.Drawing.Size(62, 17);
+            this.isArrivalRbtn.TabIndex = 10;
+            this.isArrivalRbtn.TabStop = true;
+            this.isArrivalRbtn.Text = "Ankunft";
+            this.isArrivalRbtn.UseVisualStyleBackColor = true;
+            // 
+            // isDepartureRbtn
+            // 
+            this.isDepartureRbtn.AutoSize = true;
+            this.isDepartureRbtn.Location = new System.Drawing.Point(397, 65);
+            this.isDepartureRbtn.Name = "isDepartureRbtn";
+            this.isDepartureRbtn.Size = new System.Drawing.Size(59, 17);
+            this.isDepartureRbtn.TabIndex = 11;
+            this.isDepartureRbtn.TabStop = true;
+            this.isDepartureRbtn.Text = "Abfahrt";
+            this.isDepartureRbtn.UseVisualStyleBackColor = true;
             // 
             // verbindungenSuchenForm
             // 
@@ -108,6 +150,10 @@ namespace SwissTransport_Projektarbeit
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(506, 412);
+            this.Controls.Add(this.isDepartureRbtn);
+            this.Controls.Add(this.isArrivalRbtn);
+            this.Controls.Add(this.timeDtp);
+            this.Controls.Add(this.datetimeDtp);
             this.Controls.Add(this.zuStationCmbBox);
             this.Controls.Add(this.vonStationCmbBox);
             this.Controls.Add(this.verbindungenListView);
@@ -129,5 +175,9 @@ namespace SwissTransport_Projektarbeit
         private System.Windows.Forms.ListView verbindungenListView;
         private System.Windows.Forms.ComboBox vonStationCmbBox;
         private System.Windows.Forms.ComboBox zuStationCmbBox;
+        private System.Windows.Forms.DateTimePicker datetimeDtp;
+        private System.Windows.Forms.DateTimePicker timeDtp;
+        private System.Windows.Forms.RadioButton isArrivalRbtn;
+        private System.Windows.Forms.RadioButton isDepartureRbtn;
     }
 }

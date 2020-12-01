@@ -16,6 +16,9 @@ namespace SwissTransport_Projektarbeit
     {
         // Membervariablen 
         Transport _transport = new Transport();
+        string departureDate = null;
+        string departureTime = null;
+        int isArrival = 0;
 
         public verbindungenSuchenForm()
         {
@@ -27,28 +30,31 @@ namespace SwissTransport_Projektarbeit
         {
             verbindungenListView.Items.Clear();
             verbindungenListView.Columns.Clear();
+            setDepartureDate();
+            setDepartureTime();
+            isArrivalOrDeparture();
             verbindungenListView.Items.AddRange(GetConnectionsInListView(vonStationCmbBox.Text, zuStationCmbBox.Text));
         }
 
         private void vonStationCmbBox_TextChanged(object sender, EventArgs e)
         {
-            if (vonStationCmbBox.Text.Length >= 3)
-            {
-                GetSuggestionStation(vonStationCmbBox.Text, vonStationCmbBox);
-            }
+            vonStationCmbBox.Items.Clear();
+            vonStationCmbBox.SelectionStart = vonStationCmbBox.Text.Length;
+
+            GetSuggestionStation(vonStationCmbBox.Text, vonStationCmbBox);
         }
 
         private void zuStationCmbBox_TextChanged(object sender, EventArgs e)
         {
-            if (zuStationCmbBox.Text.Length >= 3)
-            {
-                GetSuggestionStation(zuStationCmbBox.Text, zuStationCmbBox);
-            }
+            zuStationCmbBox.Items.Clear();
+            zuStationCmbBox.SelectionStart = zuStationCmbBox.Text.Length;
+
+            GetSuggestionStation(zuStationCmbBox.Text, zuStationCmbBox);
         }
 
         private ListViewItem[] GetConnectionsInListView(string vonStation, string zuStation)
         {
-            Connections verbindung = _transport.GetConnections(vonStation, zuStation);
+            Connections verbindung = _transport.GetConnections(vonStation, zuStation, departureDate, departureTime, isArrival); 
 
             AddColumns();
             ListViewItem[] listView = new ListViewItem[verbindung.ConnectionList.Count];
@@ -102,6 +108,29 @@ namespace SwissTransport_Projektarbeit
             if (cmbStation.Items.Count > 0)
             {
                 cmbStation.SelectedItem = location;
+            }
+        }
+
+        private void setDepartureDate()
+        {
+            departureDate = datetimeDtp.Value.Year + "-" + datetimeDtp.Value.Month + "-" + datetimeDtp.Value.Day;
+        }
+
+        private void setDepartureTime()
+        {
+            departureTime = timeDtp.Value.Hour + ":" + timeDtp.Value.Minute;
+        }
+
+        // isArrival = 1 (true) | isArrival = 0 (false) | Standardwert = 0 
+        private void isArrivalOrDeparture()
+        {
+            if (isArrivalRbtn.Checked == true)
+            {
+                isArrival = 1;
+            }
+            else if (isDepartureRbtn.Checked == true)
+            {
+                isArrival = 0;
             }
         }
     }

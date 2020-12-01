@@ -74,9 +74,9 @@ namespace SwissTransport_Projektarbeit
 
         private void AddColumns()
         {
-            abfahrtStationListView.Columns.Add("Station Name");
             abfahrtStationListView.Columns.Add("Zu Station");
             abfahrtStationListView.Columns.Add("Abfahrt");
+            abfahrtStationListView.Columns.Add("ZugInformation");
 
             for (int i = 0; i < abfahrtStationListView.Columns.Count; i++)
             {
