@@ -19,13 +19,13 @@ namespace SwissTransport_Projektarbeit
         public AbfahrtstafelForm()
         {
             InitializeComponent();
+            abfahrtStationListView.View = View.Details;
         }
 
         private void abfahrtStationSuchenBtn_Click(object sender, EventArgs e)
         {
             abfahrtStationListView.Items.Clear();
             abfahrtStationListView.Columns.Clear();
-            abfahrtStationListView.View = View.Details;
             abfahrtStationListView.Items.AddRange(GetStationBoard(abfahrtStationTextBox.Text));
         }
 

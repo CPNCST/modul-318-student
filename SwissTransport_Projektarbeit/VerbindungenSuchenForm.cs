@@ -20,14 +20,19 @@ namespace SwissTransport_Projektarbeit
         public verbindungenSuchenForm()
         {
             InitializeComponent();
+            verbindungenListView.View = View.Details;
         }
 
         private void verbindungenSuchenBtn_Click(object sender, EventArgs e)
         {
             verbindungenListView.Items.Clear();
             verbindungenListView.Columns.Clear();
-            verbindungenListView.View = View.Details;
-            verbindungenListView.Items.AddRange(GetConnectionsInListView(vonStationTxtBox.Text, zuStationTxtBox.Text));
+            verbindungenListView.Items.AddRange(GetConnectionsInListView(vonStationCmbBox.Text, zuStationCmbBox.Text));
+        }
+
+        private void vonStationCmbBox_TextChanged(object sender, EventArgs e)
+        {
+            GetFromStation(vonStationCmbBox.Text, vonStationCmbBox);
         }
 
         private ListViewItem[] GetConnectionsInListView(string vonStation, string zuStation)
@@ -63,6 +68,31 @@ namespace SwissTransport_Projektarbeit
             {
                 verbindungenListView.Columns[i].Width = 75;
             }
+        }
+
+        private void GetFromStation(string location, ComboBox cmbVonStation)
+        {
+            Stations stations = _transport.GetStations(location);
+            List<string> stationsList = new List<string>();
+
+            foreach (var item in stations.StationList)
+            {
+                if (!string.IsNullOrEmpty(item.Name))
+                {
+                    stationsList.Add(item.Name);
+                }
+            }
+
+            foreach (var item in stationsList)
+            {
+                cmbVonStation.Items.Add(item);
+            }
+            //vonStationCmbBox.Update();
+
+            //if (cmbVonStation.Items.Count > 0)
+            //{
+            //    cmbVonStation.SelectedIndex = 0; // selected index auf Item wo am ähnsten von input ist.
+            //}
         }
     }
 }

@@ -30,11 +30,11 @@ namespace SwissTransport_Projektarbeit
         private void InitializeComponent()
         {
             this.vonStandortLbl = new System.Windows.Forms.Label();
-            this.vonStationTxtBox = new System.Windows.Forms.TextBox();
             this.zuStationLbl = new System.Windows.Forms.Label();
-            this.zuStationTxtBox = new System.Windows.Forms.TextBox();
             this.verbindungenSuchenBtn = new System.Windows.Forms.Button();
             this.verbindungenListView = new System.Windows.Forms.ListView();
+            this.vonStationCmbBox = new System.Windows.Forms.ComboBox();
+            this.zuStationCmbBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // vonStandortLbl
@@ -47,14 +47,6 @@ namespace SwissTransport_Projektarbeit
             this.vonStandortLbl.TabIndex = 0;
             this.vonStandortLbl.Text = "Von:";
             // 
-            // vonStationTxtBox
-            // 
-            this.vonStationTxtBox.Location = new System.Drawing.Point(60, 9);
-            this.vonStationTxtBox.Name = "vonStationTxtBox";
-            this.vonStationTxtBox.Size = new System.Drawing.Size(140, 20);
-            this.vonStationTxtBox.TabIndex = 1;
-            this.vonStationTxtBox.Text = "\"Stationname\"";
-            // 
             // zuStationLbl
             // 
             this.zuStationLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -65,15 +57,6 @@ namespace SwissTransport_Projektarbeit
             this.zuStationLbl.Size = new System.Drawing.Size(32, 20);
             this.zuStationLbl.TabIndex = 2;
             this.zuStationLbl.Text = "Zu:";
-            // 
-            // zuStationTxtBox
-            // 
-            this.zuStationTxtBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.zuStationTxtBox.Location = new System.Drawing.Point(354, 9);
-            this.zuStationTxtBox.Name = "zuStationTxtBox";
-            this.zuStationTxtBox.Size = new System.Drawing.Size(140, 20);
-            this.zuStationTxtBox.TabIndex = 3;
-            this.zuStationTxtBox.Text = "\"Stationname\"";
             // 
             // verbindungenSuchenBtn
             // 
@@ -96,6 +79,23 @@ namespace SwissTransport_Projektarbeit
             this.verbindungenListView.TabIndex = 5;
             this.verbindungenListView.UseCompatibleStateImageBehavior = false;
             // 
+            // vonStationCmbBox
+            // 
+            this.vonStationCmbBox.FormattingEnabled = true;
+            this.vonStationCmbBox.Location = new System.Drawing.Point(60, 9);
+            this.vonStationCmbBox.Name = "vonStationCmbBox";
+            this.vonStationCmbBox.Size = new System.Drawing.Size(121, 21);
+            this.vonStationCmbBox.TabIndex = 6;
+            this.vonStationCmbBox.TextChanged += new System.EventHandler(this.vonStationCmbBox_TextChanged);
+            // 
+            // zuStationCmbBox
+            // 
+            this.zuStationCmbBox.FormattingEnabled = true;
+            this.zuStationCmbBox.Location = new System.Drawing.Point(354, 9);
+            this.zuStationCmbBox.Name = "zuStationCmbBox";
+            this.zuStationCmbBox.Size = new System.Drawing.Size(121, 21);
+            this.zuStationCmbBox.TabIndex = 7;
+            // 
             // verbindungenSuchenForm
             // 
             this.AcceptButton = this.verbindungenSuchenBtn;
@@ -103,11 +103,11 @@ namespace SwissTransport_Projektarbeit
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(506, 412);
+            this.Controls.Add(this.zuStationCmbBox);
+            this.Controls.Add(this.vonStationCmbBox);
             this.Controls.Add(this.verbindungenListView);
             this.Controls.Add(this.verbindungenSuchenBtn);
-            this.Controls.Add(this.zuStationTxtBox);
             this.Controls.Add(this.zuStationLbl);
-            this.Controls.Add(this.vonStationTxtBox);
             this.Controls.Add(this.vonStandortLbl);
             this.Name = "verbindungenSuchenForm";
             this.Text = "Verbindungen Suchen";
@@ -119,10 +119,10 @@ namespace SwissTransport_Projektarbeit
         #endregion
 
         private System.Windows.Forms.Label vonStandortLbl;
-        private System.Windows.Forms.TextBox vonStationTxtBox;
         private System.Windows.Forms.Label zuStationLbl;
-        private System.Windows.Forms.TextBox zuStationTxtBox;
         private System.Windows.Forms.Button verbindungenSuchenBtn;
         private System.Windows.Forms.ListView verbindungenListView;
+        private System.Windows.Forms.ComboBox vonStationCmbBox;
+        private System.Windows.Forms.ComboBox zuStationCmbBox;
     }
 }
