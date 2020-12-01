@@ -31,20 +31,15 @@ namespace SwissTransport_Projektarbeit
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AbfahrtstafelForm));
             this.label1 = new System.Windows.Forms.Label();
-            this.abfahrtStationTextBox = new System.Windows.Forms.TextBox();
             this.abfahrtStationSuchenBtn = new System.Windows.Forms.Button();
             this.abfahrtStationListView = new System.Windows.Forms.ListView();
+            this.abfahrtStationCmbBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            // 
-            // abfahrtStationTextBox
-            // 
-            resources.ApplyResources(this.abfahrtStationTextBox, "abfahrtStationTextBox");
-            this.abfahrtStationTextBox.Name = "abfahrtStationTextBox";
             // 
             // abfahrtStationSuchenBtn
             // 
@@ -60,14 +55,20 @@ namespace SwissTransport_Projektarbeit
             this.abfahrtStationListView.Name = "abfahrtStationListView";
             this.abfahrtStationListView.UseCompatibleStateImageBehavior = false;
             // 
+            // abfahrtStationCmbBox
+            // 
+            this.abfahrtStationCmbBox.FormattingEnabled = true;
+            resources.ApplyResources(this.abfahrtStationCmbBox, "abfahrtStationCmbBox");
+            this.abfahrtStationCmbBox.Name = "abfahrtStationCmbBox";
+            // 
             // AbfahrtstafelForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Controls.Add(this.abfahrtStationCmbBox);
             this.Controls.Add(this.abfahrtStationListView);
             this.Controls.Add(this.abfahrtStationSuchenBtn);
-            this.Controls.Add(this.abfahrtStationTextBox);
             this.Controls.Add(this.label1);
             this.Name = "AbfahrtstafelForm";
             this.ResumeLayout(false);
@@ -78,8 +79,8 @@ namespace SwissTransport_Projektarbeit
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox abfahrtStationTextBox;
         private System.Windows.Forms.Button abfahrtStationSuchenBtn;
         private System.Windows.Forms.ListView abfahrtStationListView;
+        private System.Windows.Forms.ComboBox abfahrtStationCmbBox;
     }
 }

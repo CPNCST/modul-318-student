@@ -15,7 +15,7 @@ namespace SwissTransport_Projektarbeit
     public partial class verbindungenSuchenForm : Form
     {
         // Membervariablen 
-        Transport _transport = new Transport(); 
+        Transport _transport = new Transport();
 
         public verbindungenSuchenForm()
         {
@@ -32,7 +32,18 @@ namespace SwissTransport_Projektarbeit
 
         private void vonStationCmbBox_TextChanged(object sender, EventArgs e)
         {
-            GetFromStation(vonStationCmbBox.Text, vonStationCmbBox);
+            if (vonStationCmbBox.Text.Length >= 3)
+            {
+                GetSuggestionStation(vonStationCmbBox.Text, vonStationCmbBox);
+            }
+        }
+
+        private void zuStationCmbBox_TextChanged(object sender, EventArgs e)
+        {
+            if (zuStationCmbBox.Text.Length >= 3)
+            {
+                GetSuggestionStation(zuStationCmbBox.Text, zuStationCmbBox);
+            }
         }
 
         private ListViewItem[] GetConnectionsInListView(string vonStation, string zuStation)
@@ -70,7 +81,7 @@ namespace SwissTransport_Projektarbeit
             }
         }
 
-        private void GetFromStation(string location, ComboBox cmbVonStation)
+        private void GetSuggestionStation(string location, ComboBox cmbStation)
         {
             Stations stations = _transport.GetStations(location);
             List<string> stationsList = new List<string>();
@@ -85,14 +96,13 @@ namespace SwissTransport_Projektarbeit
 
             foreach (var item in stationsList)
             {
-                cmbVonStation.Items.Add(item);
+                cmbStation.Items.Add(item);
             }
-            //vonStationCmbBox.Update();
 
-            //if (cmbVonStation.Items.Count > 0)
-            //{
-            //    cmbVonStation.SelectedIndex = 0; // selected index auf Item wo am ähnsten von input ist.
-            //}
+            if (cmbStation.Items.Count > 0)
+            {
+                cmbStation.SelectedItem = location;
+            }
         }
     }
 }

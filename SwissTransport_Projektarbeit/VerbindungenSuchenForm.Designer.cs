@@ -81,6 +81,8 @@ namespace SwissTransport_Projektarbeit
             // 
             // vonStationCmbBox
             // 
+            this.vonStationCmbBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.vonStationCmbBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.vonStationCmbBox.FormattingEnabled = true;
             this.vonStationCmbBox.Location = new System.Drawing.Point(60, 9);
             this.vonStationCmbBox.Name = "vonStationCmbBox";
@@ -90,11 +92,14 @@ namespace SwissTransport_Projektarbeit
             // 
             // zuStationCmbBox
             // 
+            this.zuStationCmbBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.zuStationCmbBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.zuStationCmbBox.FormattingEnabled = true;
             this.zuStationCmbBox.Location = new System.Drawing.Point(354, 9);
             this.zuStationCmbBox.Name = "zuStationCmbBox";
             this.zuStationCmbBox.Size = new System.Drawing.Size(121, 21);
             this.zuStationCmbBox.TabIndex = 7;
+            this.zuStationCmbBox.TextChanged += new System.EventHandler(this.zuStationCmbBox_TextChanged);
             // 
             // verbindungenSuchenForm
             // 

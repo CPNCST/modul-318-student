@@ -26,7 +26,7 @@ namespace SwissTransport_Projektarbeit
         {
             abfahrtStationListView.Items.Clear();
             abfahrtStationListView.Columns.Clear();
-            abfahrtStationListView.Items.AddRange(GetStationBoard(abfahrtStationTextBox.Text));
+            abfahrtStationListView.Items.AddRange(GetStationBoard(abfahrtStationCmbBox.Text));
         }
 
         private ListViewItem[] GetStationBoard(string fromStation)
