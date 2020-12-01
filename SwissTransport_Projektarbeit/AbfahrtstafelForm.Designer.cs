@@ -57,9 +57,12 @@ namespace SwissTransport_Projektarbeit
             // 
             // abfahrtStationCmbBox
             // 
+            this.abfahrtStationCmbBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.abfahrtStationCmbBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.abfahrtStationCmbBox.FormattingEnabled = true;
             resources.ApplyResources(this.abfahrtStationCmbBox, "abfahrtStationCmbBox");
             this.abfahrtStationCmbBox.Name = "abfahrtStationCmbBox";
+            this.abfahrtStationCmbBox.TextChanged += new System.EventHandler(this.abfahrtStationCmbBox_TextChanged);
             // 
             // AbfahrtstafelForm
             // 

@@ -29,6 +29,14 @@ namespace SwissTransport_Projektarbeit
             abfahrtStationListView.Items.AddRange(GetStationBoard(abfahrtStationCmbBox.Text));
         }
 
+        private void abfahrtStationCmbBox_TextChanged(object sender, EventArgs e)
+        {
+            if (abfahrtStationCmbBox.Text.Length >= 3)
+            {
+                GetSuggestionStation(abfahrtStationCmbBox.Text, abfahrtStationCmbBox);
+            }
+        }
+
         private ListViewItem[] GetStationBoard(string fromStation)
         {
             Stations stations = new Stations();
@@ -73,6 +81,30 @@ namespace SwissTransport_Projektarbeit
             for (int i = 0; i < abfahrtStationListView.Columns.Count; i++)
             {
                 abfahrtStationListView.Columns[i].Width = 90;
+            }
+        }
+
+        private void GetSuggestionStation(string location, ComboBox cmbStation)
+        {
+            Stations stations = _transport.GetStations(location);
+            List<string> stationsList = new List<string>();
+
+            foreach (var item in stations.StationList)
+            {
+                if (!string.IsNullOrEmpty(item.Name))
+                {
+                    stationsList.Add(item.Name);
+                }
+            }
+
+            foreach (var item in stationsList)
+            {
+                cmbStation.Items.Add(item);
+            }
+
+            if (cmbStation.Items.Count > 0)
+            {
+                cmbStation.SelectedItem = location;
             }
         }
     }
