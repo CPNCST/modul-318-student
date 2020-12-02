@@ -113,7 +113,7 @@ namespace SwissTransport_Projektarbeit
             // 
             // timeDtp
             // 
-            this.timeDtp.CustomFormat = "hh:mm - yyyy";
+            this.timeDtp.CustomFormat = "HH:mm";
             this.timeDtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.timeDtp.Location = new System.Drawing.Point(219, 64);
             this.timeDtp.Name = "timeDtp";

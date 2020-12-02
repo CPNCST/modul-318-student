@@ -16,6 +16,8 @@ namespace SwissTransport_Projektarbeit
     {
         // Membervariablen 
         Transport _transport = new Transport();
+        Stations _stations = new Stations();
+        GeoCoordinateWatcher _watcher = new GeoCoordinateWatcher();
 
         public AbfahrtstafelForm()
         {
@@ -25,7 +27,31 @@ namespace SwissTransport_Projektarbeit
 
         private void positionFindenBtn_Click(object sender, EventArgs e)
         {
+            _watcher.TryStart(false, TimeSpan.FromMilliseconds(100000));
+            _watcher.StatusChanged += new EventHandler<GeoPositionStatusChangedEventArgs>(positionFindenBtn_Click);
 
+            if (_watcher.Position.Location.IsUnknown)                                                   
+            {
+                MessageBox.Show("Standort konnte nicht gefunden werden.");
+            }
+            else
+            {
+                try
+                {
+                    double x = _watcher.Position.Location.Latitude;
+                    double y = _watcher.Position.Location.Longitude;
+                    _stations = _transport.GetStationsCoordinate(x, y);
+                    
+                    FillStationListView(_stations);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+
+            }
+
+            _watcher.Stop();
         }
 
         private void abfahrtStationSuchenBtn_Click(object sender, EventArgs e)
@@ -43,6 +69,16 @@ namespace SwissTransport_Projektarbeit
             if (abfahrtStationCmbBox.Text.Length >= 3)
             {
                 GetSuggestionStation(abfahrtStationCmbBox.Text, abfahrtStationCmbBox);
+            }
+        }
+
+        public void FillStationListView(Stations stations)
+        {
+            string currStation = stations.StationList.First().Name;
+            abfahrtStationListView.Items.Clear();
+            foreach (Station station in stations.StationList)
+            {
+                abfahrtStationListView.Items.Add(currStation, station.Name, station.Distance + " m");
             }
         }
 
