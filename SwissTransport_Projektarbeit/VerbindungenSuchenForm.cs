@@ -36,20 +36,20 @@ namespace SwissTransport_Projektarbeit
             verbindungenListView.Items.AddRange(GetConnectionsInListView(vonStationCmbBox.Text, zuStationCmbBox.Text));
         }
 
-        private void vonStationCmbBox_TextChanged(object sender, EventArgs e)
+        private void vonStationCmbBox_TextUpdate(object sender, EventArgs e)
         {
             vonStationCmbBox.Items.Clear();
             vonStationCmbBox.SelectionStart = vonStationCmbBox.Text.Length;
 
-            GetSuggestionStation(vonStationCmbBox.Text, vonStationCmbBox);
+            GetSuggestionFromStation(vonStationCmbBox.Text, vonStationCmbBox);
         }
 
-        private void zuStationCmbBox_TextChanged(object sender, EventArgs e)
+        private void zuStationCmbBox_TextUpdate(object sender, EventArgs e)
         {
             zuStationCmbBox.Items.Clear();
             zuStationCmbBox.SelectionStart = zuStationCmbBox.Text.Length;
 
-            GetSuggestionStation(zuStationCmbBox.Text, zuStationCmbBox);
+            GetSuggestionFromStation(zuStationCmbBox.Text, zuStationCmbBox);
         }
 
         private ListViewItem[] GetConnectionsInListView(string vonStation, string zuStation)
@@ -87,27 +87,53 @@ namespace SwissTransport_Projektarbeit
             }
         }
 
-        private void GetSuggestionStation(string location, ComboBox cmbStation)
+        private void GetSuggestionFromStation(string location, ComboBox cmbStation)
         {
             Stations stations = _transport.GetStations(location);
-            List<string> stationsList = new List<string>();
+            List<string> fromStationList = new List<string>();
 
             foreach (var item in stations.StationList)
             {
                 if (!string.IsNullOrEmpty(item.Name))
                 {
-                    stationsList.Add(item.Name);
+                    fromStationList.Add(item.Name);
                 }
             }
 
-            foreach (var item in stationsList)
+            foreach (var item in fromStationList)
             {
                 cmbStation.Items.Add(item);
             }
 
             if (cmbStation.Items.Count > 0)
             {
-                cmbStation.SelectedItem = location;
+                //cmbStation.SelectedIndex = 0; 
+                //cmbStation.SelectedItem = fromStationList.First().Contains(location);
+            }
+        }
+
+        private void GetSuggestionToStation(string location, ComboBox cmbStation)
+        {
+            Stations stations = _transport.GetStations(location);
+            List<string> toStationList = new List<string>();
+
+            foreach (var item in stations.StationList)
+            {
+                if (!string.IsNullOrEmpty(item.Name))
+                {
+                    toStationList.Add(item.Name);
+                }
+            }
+
+            foreach (var item in toStationList)
+            {
+                cmbStation.Items.Add(item);
+            }
+
+            if (cmbStation.Items.Count > 0)
+            {
+                //cmbStation.SelectedIndex = 0;
+                //cmbStation.SelectedItem = toStationList.First().Contains(location);
             }
         }
 

@@ -92,7 +92,7 @@ namespace SwissTransport_Projektarbeit
             this.vonStationCmbBox.Name = "vonStationCmbBox";
             this.vonStationCmbBox.Size = new System.Drawing.Size(121, 21);
             this.vonStationCmbBox.TabIndex = 6;
-            this.vonStationCmbBox.TextChanged += new System.EventHandler(this.vonStationCmbBox_TextChanged);
+            this.vonStationCmbBox.TextUpdate += new System.EventHandler(this.vonStationCmbBox_TextUpdate);
             // 
             // zuStationCmbBox
             // 
@@ -102,7 +102,7 @@ namespace SwissTransport_Projektarbeit
             this.zuStationCmbBox.Name = "zuStationCmbBox";
             this.zuStationCmbBox.Size = new System.Drawing.Size(121, 21);
             this.zuStationCmbBox.TabIndex = 7;
-            this.zuStationCmbBox.TextChanged += new System.EventHandler(this.zuStationCmbBox_TextChanged);
+            this.zuStationCmbBox.TextUpdate += new System.EventHandler(this.zuStationCmbBox_TextUpdate);
             // 
             // datetimeDtp
             // 
