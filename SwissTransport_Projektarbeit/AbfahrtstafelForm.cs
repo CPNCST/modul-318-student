@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Device.Location;
 using SwissTransport;
 
 namespace SwissTransport_Projektarbeit
@@ -20,6 +21,11 @@ namespace SwissTransport_Projektarbeit
         {
             InitializeComponent();
             abfahrtStationListView.View = View.Details;
+        }
+
+        private void positionFindenBtn_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void abfahrtStationSuchenBtn_Click(object sender, EventArgs e)
@@ -70,6 +76,11 @@ namespace SwissTransport_Projektarbeit
                 stationListView[i].SubItems.Add(item.Stop.Departure.ToShortTimeString()); // Abfahrt 
                 stationListView[i].SubItems.Add(item.Name); // Zuginformation
                 i++;
+            }
+
+            if (stationListView == null)
+            {
+                stationListView[0] = new ListViewItem("Es ist keine Abfahrtstafel vorhanden.");
             }
 
             return stationListView;

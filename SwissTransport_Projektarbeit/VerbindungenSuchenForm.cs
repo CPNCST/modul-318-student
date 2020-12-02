@@ -69,6 +69,11 @@ namespace SwissTransport_Projektarbeit
                 listView[i].SubItems.Add(verbindung.ConnectionList[i].From.Platform);
             }
 
+            if (listView == null)
+            {
+                listView[0] = new ListViewItem("Es sind keine Verbindungen vorhanden.");
+            }
+
             return listView;
         }
 

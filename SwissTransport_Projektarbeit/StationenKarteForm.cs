@@ -31,7 +31,6 @@ namespace SwissTransport_Projektarbeit
             if (mapStationCmbBox.SelectedIndex != -1)
             {
                 this.GetLocation(stationList, _transport, mapStationCmbBox.SelectedItem.ToString());
-                //gMapControl.Show(GetLocation(stationList, _transport, mapStationCmbBox.SelectedItem.ToString()));
             }
         }
 

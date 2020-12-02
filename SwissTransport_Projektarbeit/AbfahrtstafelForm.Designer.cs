@@ -34,6 +34,7 @@ namespace SwissTransport_Projektarbeit
             this.abfahrtStationSuchenBtn = new System.Windows.Forms.Button();
             this.abfahrtStationListView = new System.Windows.Forms.ListView();
             this.abfahrtStationCmbBox = new System.Windows.Forms.ComboBox();
+            this.positionFindenBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -62,11 +63,20 @@ namespace SwissTransport_Projektarbeit
             this.abfahrtStationCmbBox.Name = "abfahrtStationCmbBox";
             this.abfahrtStationCmbBox.TextUpdate += new System.EventHandler(this.abfahrtStationCmbBox_TextUpdate);
             // 
+            // positionFindenBtn
+            // 
+            resources.ApplyResources(this.positionFindenBtn, "positionFindenBtn");
+            this.positionFindenBtn.Name = "positionFindenBtn";
+            this.positionFindenBtn.UseVisualStyleBackColor = true;
+            this.positionFindenBtn.Click += new System.EventHandler(this.positionFindenBtn_Click);
+            // 
             // AbfahrtstafelForm
             // 
+            this.AcceptButton = this.abfahrtStationSuchenBtn;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Controls.Add(this.positionFindenBtn);
             this.Controls.Add(this.abfahrtStationCmbBox);
             this.Controls.Add(this.abfahrtStationListView);
             this.Controls.Add(this.abfahrtStationSuchenBtn);
@@ -83,5 +93,6 @@ namespace SwissTransport_Projektarbeit
         private System.Windows.Forms.Button abfahrtStationSuchenBtn;
         private System.Windows.Forms.ListView abfahrtStationListView;
         private System.Windows.Forms.ComboBox abfahrtStationCmbBox;
+        private System.Windows.Forms.Button positionFindenBtn;
     }
 }

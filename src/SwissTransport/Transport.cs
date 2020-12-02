@@ -24,6 +24,24 @@ namespace SwissTransport
             return null;
         }
 
+        public Stations GetStationsCoordinate(string query, double x, double y)
+        {
+            query = System.Uri.EscapeDataString(query);
+            var request = CreateWebRequest("http://transport.opendata.ch/v1/locations?query=" + query + "&x=" + x + "&y=" + y);
+            var response = request.GetResponse();
+            var responseStream = response.GetResponseStream();
+
+            if (responseStream != null)
+            {
+                var message = new StreamReader(responseStream).ReadToEnd();
+                var stations = JsonConvert.DeserializeObject<Stations>(message
+                    , new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+                return stations;
+            }
+
+            return null;
+        }
+
         public StationBoardRoot GetStationBoard(string station, string id)
         {
             station = System.Uri.EscapeDataString(station);
@@ -48,6 +66,25 @@ namespace SwissTransport
             fromStation = System.Uri.EscapeDataString(fromStation);
             toStation = System.Uri.EscapeDataString(toStation);
             var request = CreateWebRequest("http://transport.opendata.ch/v1/connections?from=" + fromStation + "&to=" + toStation + "&date=" + Date + "&time=" + Time + "&isArrivalTime=" + isArrivalTime);
+            var response = request.GetResponse();
+            var responseStream = response.GetResponseStream();
+
+            if (responseStream != null)
+            {
+                var readToEnd = new StreamReader(responseStream).ReadToEnd();
+                var connections =
+                    JsonConvert.DeserializeObject<Connections>(readToEnd);
+                return connections;
+            }
+
+            return null;
+        }
+
+        public Connections GetConnections(string fromStation, string toStation)
+        {
+            fromStation = System.Uri.EscapeDataString(fromStation);
+            toStation = System.Uri.EscapeDataString(toStation);
+            var request = CreateWebRequest("http://transport.opendata.ch/v1/connections?from=" + fromStation + "&to=" + toStation);
             var response = request.GetResponse();
             var responseStream = response.GetResponseStream();
 
