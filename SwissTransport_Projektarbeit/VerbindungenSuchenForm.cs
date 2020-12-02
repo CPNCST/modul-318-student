@@ -104,12 +104,6 @@ namespace SwissTransport_Projektarbeit
             {
                 cmbStation.Items.Add(item);
             }
-
-            if (cmbStation.Items.Count > 0)
-            {
-                //cmbStation.SelectedIndex = 0; 
-                //cmbStation.SelectedItem = fromStationList.First().Contains(location);
-            }
         }
 
         private void GetSuggestionToStation(string location, ComboBox cmbStation)
@@ -128,12 +122,6 @@ namespace SwissTransport_Projektarbeit
             foreach (var item in toStationList)
             {
                 cmbStation.Items.Add(item);
-            }
-
-            if (cmbStation.Items.Count > 0)
-            {
-                //cmbStation.SelectedIndex = 0;
-                //cmbStation.SelectedItem = toStationList.First().Contains(location);
             }
         }
 

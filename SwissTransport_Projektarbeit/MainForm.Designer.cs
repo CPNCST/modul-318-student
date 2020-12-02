@@ -92,6 +92,7 @@ namespace SwissTransport_Projektarbeit
             this.MFkarteStationsuebersichtBtn.TabIndex = 2;
             this.MFkarteStationsuebersichtBtn.Text = "Karte Stationsübersicht";
             this.MFkarteStationsuebersichtBtn.UseVisualStyleBackColor = true;
+            this.MFkarteStationsuebersichtBtn.Click += new System.EventHandler(this.MFkarteStationsuebersichtBtn_Click);
             // 
             // MFstationenAbfahrtstafelBtn
             // 
