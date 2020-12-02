@@ -58,7 +58,15 @@ namespace SwissTransport_Projektarbeit
         {
             abfahrtStationListView.Items.Clear();
             abfahrtStationListView.Columns.Clear();
-            abfahrtStationListView.Items.AddRange(GetStationBoard(abfahrtStationCmbBox.Text));
+
+            if (!string.IsNullOrEmpty(abfahrtStationCmbBox.Text))
+            {
+                abfahrtStationListView.Items.AddRange(GetStationBoard(abfahrtStationCmbBox.Text));
+            }
+            else
+            {
+                MessageBox.Show("Bitte einen Stationsnamen eingeben.");
+            }
         }
 
         private void abfahrtStationCmbBox_TextUpdate(object sender, EventArgs e)
